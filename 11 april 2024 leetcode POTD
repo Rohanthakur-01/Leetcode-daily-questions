@@ -1,5 +1,5 @@
 // 11 april 2024 leetcode POTD
-// 402. Remove K Digits
+// 402. Remove K Digits(medium)
 // T.C - O(2*n) , SC = O(n)
 // using c++ 
 class Solution {
