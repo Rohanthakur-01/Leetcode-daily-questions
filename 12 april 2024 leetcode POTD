@@ -14,7 +14,7 @@ public:
          return leftmax;
     }
 
-    vector<int>  getright_max(vector<int> &height , int n){
+    vector<int>  getright_max(vector<int> &height , int &n){
          vector<int>rightmax(n);
          rightmax[n-1] = height[n-1];
          for(int i =n-2; i>=0;i--){
