@@ -1,0 +1,64 @@
+// 404. Sum of Left Leaves
+//using c++ 
+// using 2 approaches 
+//approach takes TC = O(N), SC = O(1) but uses auxillary space of stack as we use recursion 
+
+class Solution {
+public:
+
+//approach 1
+  int solve(TreeNode* curr,TreeNode* parent){
+    //base case 
+    if(curr == NULL){
+        return 0;
+    }
+    if(curr -> left == NULL && curr -> right == NULL){
+        if(parent != NULL && parent -> left == curr){
+            return curr -> val;
+        }
+    }
+
+    //left call 
+    int left = solve(curr->left,curr);
+    int right = solve(curr->right,curr);
+
+    return left + right ;
+
+  }
+
+  int sumOfLeftLeaves(TreeNode* root) {
+       //approach 1
+        return solve(root,NULL);
+    }
+};
+
+-------------------------------------------------------------------------------------------------Approach 2-------------------------------------------------------------------------------------------------------
+//it takes TC = O(N) SC =O(1) no auxillary space rew as we dont use recursion
+// it uses the auxillary space in a better way 
+// using c++
+
+
+class Solution {
+public:
+
+//approach 2
+int solve(TreeNode* curr, bool isLeft) {
+    if(!curr) {
+        return 0;
+    }   
+
+    if(!curr->left && !curr->right && isLeft) {
+          return curr->val;
+    }
+                                                                            
+    return solve(curr->left, true) + solve(curr->right, false);
+    }
+    
+    int sumOfLeftLeaves(TreeNode* root) {
+       //approach 1
+        //return solve(root,NULL);
+
+        approach 2
+        return solve(root,false);
+    }
+};
